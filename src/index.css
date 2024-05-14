@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+li {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+
+.slide {
+  overflow: auto;
+  width: 900px;
+  margin: 20px auto;
+}
+
+.first {
+  width: 450px;
+  height: 500px;
+  background-color: rgb(197, 202, 213);
+  border-radius: 10px;
+  position: fixed;
+  bottom: 2.5rem;
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-origin: bottom right;
+  transition: all 0.5s ease;
+  z-index: 100;
+  overflow: hidden;
+}
+.first .chat-container {
+  padding: 0 1rem 10px 1rem;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.hide {
+  right: 2.5rem;
+  bottom: 2.5rem;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper-login-register {
+  width: 50vw;
+  height: 60vh;
+  border-radius: 30px;
+  background-color: rgb(205, 254, 255);
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 0px 5px rgba(128, 128, 128, 0.372);
+}
+
+.layer-1 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  background-color: white;
+}
+
+.register-form {
+  transition: all 0.5s ease-in;
+}
+
+.login-form {
+  transition: all 0.5s ease-in;
+}
+
+
+.slide {
+  width: 50%;
+  height: 100%;
+  border-radius: 20px 110px 110px 20px;
+  background-color: dodgerblue;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  /* animation: left-right 6s ease-in-out 1s infinite; */
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  left: calc(100% - 50%);
+  border-radius: 110px 30px 30px 110px;
+}
+
+.left {
+  left: 0;
+  border-radius: 30px 110px 110px 30px;
+}
+
+@keyframes left-righ {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100% - 50%);
+    border-radius: 110px 30px 30px 110px;
+  }
+  100% {
+    left: 0;
+  }
+}
