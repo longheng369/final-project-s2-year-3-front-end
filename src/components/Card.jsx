@@ -35,7 +35,7 @@ export const Card = ({
         className="w-full h-[66%] bg-gray-300  flex justify-center items-center overflow-hidden"
       >
         <img
-          src={`http://localhost:8000/storage/${image}`}
+          src={`https://pott.website/storage/${image}`}
           alt="Product"
           className="w-full"
         />

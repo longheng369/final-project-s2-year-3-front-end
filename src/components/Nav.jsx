@@ -14,7 +14,7 @@ const Nav = ({ scrollToFooter }) => {
   const confirmLogout = async () => {
     try {
       setIsLoading(true);
-      await axios.get("http://127.0.0.1:8000/api/logout", {
+      await axios.get(`https://pott.website/api/logout`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

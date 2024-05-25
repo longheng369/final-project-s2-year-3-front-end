@@ -20,12 +20,14 @@ const CardDetails = () => {
     setRefresh(!refresh);
   };
 
+
   useEffect(() => {
     const fetchComment = async () => {
       try {
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/api/products/${id}/comments`
+          `https://pott.website/api/products/${id}/comments`
         );
+        console.log(data)
         setProduct(data.data);
         setComments(data.data.comments);
       } catch (error) {
@@ -40,8 +42,12 @@ const CardDetails = () => {
     return () => clearInterval(intervalId);
   }, [refresh]);
 
-  if (isLoading) return <h1 className="flex justify-center items-center w-full h-[400px]"><span className="loading loading-dots loading-lg"></span></h1>;
-
+  if (isLoading)
+    return (
+      <h1 className="flex justify-center items-center w-full h-[400px]">
+        <span className="loading loading-dots loading-lg"></span>
+      </h1>
+    );
 
   return (
     <div>
@@ -50,23 +56,37 @@ const CardDetails = () => {
           className="flex flex-col justify-center items-center p-4"
           key={product.id}
         >
-          <div className="w-[500px] h-[500px] overflow-hidden flex justify-center items-center">
-            <img
-              className="w-full"
-              src={`http://localhost:8000/storage/${product.image}`}
-              alt="image"
-            />
-          </div>
-          <h1 className="text-2xl mt-2">{product.title}</h1>
+          <div className=" w-full px-[12rem] py-[4rem] bg-gray-200">
+            <div className="bg-white flex justify-center">
+              <div className="flex justify-center items-center py-4">
+                <div className="w-[500px] h-[500px]">
+                  <img
+                    className="w-full ml-8"
+                    src={`https://pott.website/storage/${product.image}`}
+                    alt="image"
+                  />
+                </div>
+              </div>
+              <div className="mx-16 my-12 flex-1 ">
+                <h1 className="text-2xl mt-2">Model: {product.title}</h1>
 
-          <div className="text-xl flex items-center text-white gap-4 bg-green-600 py-2 px-4 rounded-lg mt-1">
-            <HiOutlineShoppingCart />
-            {product.price}$
+                <h1 className="text-xl">Size: {product.size} {product.scale}</h1>
+                <h1 className="text-xl">Color: {product.color}</h1>
+
+                <div className="bg-yellow-400 px-4 py-2 rounded-lg">
+                  <h1 className="text-xl">
+                    Price: <span className="font-bold text-blue-800">3$</span>
+                  </h1>
+                </div>
+
+                {/* <h2 className="w-full border border-gray-400"></h2> */}
+                <p className="text-lg">
+                  <span className="font-bold text-xl">More Details: </span>
+                  {product.details}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="container mx-auto my-5 ">
-          <h1 className="text-2xl">More Details</h1>
-          <p className=" text-[1.2rem]">{product.details}</p>
         </div>
       </>
 

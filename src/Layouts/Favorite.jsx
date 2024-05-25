@@ -33,7 +33,7 @@ const Favorite = () => {
     // Send request to upvote endpoint with the product ID
     try {
       await axios.post(
-        `http://127.0.0.1:8000/api/products/${id}/upvote`,
+        `${process.env.APP_URL}/api/products/${id}/upvote`,
         { is_upvote: !isLiked },
         {
           headers: {
@@ -63,7 +63,7 @@ const Favorite = () => {
       // Send request to upvote endpoint with the product ID
       try {
         await axios.post(
-          `http://127.0.0.1:8000/api/products/${id}/favorite`,
+          `${process.env.APP_URL}/api/products/${id}/favorite`,
           {},
           {
             headers: {
@@ -81,7 +81,7 @@ const Favorite = () => {
       // Send request to upvote endpoint with the product ID
       try {
         await axios.delete(
-          `http://127.0.0.1:8000/api/products/${id}/favorite`,
+          `${process.env.APP_URL}/api/products/${id}/favorite`,
 
           {
             headers: {
@@ -102,7 +102,7 @@ const Favorite = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/items-with-likes-favorites",
+            `https://pott.website/api/items-with-likes-favorites`,
             {
               headers: {
                 "Content-Type": "application/json",

@@ -13,7 +13,7 @@ const NavDropDown = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["NavCategory"],
     queryFn: () =>
-      fetch("http://127.0.0.1:8000/api/category").then((res) => res.json()),
+      fetch(`https://pott.website/api/category`).then((res) => res.json()),
   });
 
   //   if(isPending) return <div className=" px-4 py-2">Category</div>;

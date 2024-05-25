@@ -9,7 +9,7 @@ const Category = ({ id, image, title }) => {
         <Link to={`/category/${id}/${title}`}>
           <div className="w-full h-[80%] overflow-hidden bg-gray-200 flex justify-center items-center">
             <img
-              src={`http://localhost:8000/storage/${image}`}
+              src={`https://pott.website/storage/${image}`}
               alt="image"
               className="w-full h-full object-cover"
             />

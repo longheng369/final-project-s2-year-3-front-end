@@ -8,7 +8,7 @@ const ShopCategory = () => {
     queryKey: ["shopCategory"],
     queryFn: () => {
       return axios
-        .get("http://127.0.0.1:8000/api/category")
+        .get(`https://pott.website/api/category`)
         .then((res) => res.data);
     },
   });
@@ -22,7 +22,6 @@ const ShopCategory = () => {
       </div>
     );
   }
-
   return (
     <div className="container mx-auto mb-10">
       <h2 className="text-center text-[3rem] p-4 ">Shop By Category</h2>

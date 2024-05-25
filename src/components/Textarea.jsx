@@ -30,7 +30,7 @@ const Textarea = ({onRefresh}) => {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/products/${id}/comment`,
+        `https://pott.website/api/products/${id}/comment`,
         { body: body },
         {
           headers: {
@@ -56,7 +56,7 @@ const Textarea = ({onRefresh}) => {
       <textarea
         ref={textareaRef}
         className="w-[90%] rounded-lg outline-none border-2 shadow-sm resize-none overflow-hidden text-lg p-2 max-h-[200px]"
-        placeholder="Type your message here..."
+        placeholder="Type your Comment here..."
         value={body}
         onChange={handleChange}
       />
@@ -68,7 +68,7 @@ const Textarea = ({onRefresh}) => {
             onClick={handleComment}
             className="px-4 py-2 rounded-lg bg-blue-500 text-lg whitespace-nowrap text-white"
           >
-            Comment
+            Send
           </button>
         )}
       </div>
